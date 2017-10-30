@@ -10,11 +10,18 @@ class Question extends Component {
 }
 
 const questionStyle = {
+  position: "absolute",
+  top: "100px",
+  left: "140px",
   width: "500px",
-  height: "200px",
-  border: "1px solid #EEE",
-  borderRadius: "5px";
-  padding:
+  height: "330px",
+  padding: "10px",
+  backgroundImage: "url('/images/Tela.png')",
+  backgroundSize: "cover",
+  padding: "70px 30px 70px 70px",
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center"
 }
 
 export default Question;

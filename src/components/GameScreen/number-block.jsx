@@ -12,4 +12,4 @@ class NumberBlock extends Component {
   }
 }
 
-export default Question;
+export default NumberBlock;
