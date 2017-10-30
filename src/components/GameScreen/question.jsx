@@ -4,6 +4,7 @@ class Question extends Component {
   render() {
     return(
       <div style={questionStyle} id="question">
+        {this.props.children}
       </div>
     )
   }
@@ -15,7 +16,6 @@ const questionStyle = {
   left: "140px",
   width: "500px",
   height: "330px",
-  padding: "10px",
   backgroundImage: "url('/images/Tela.png')",
   backgroundSize: "cover",
   padding: "70px 30px 70px 70px",
