@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Question from './question';
 import Answer from './answer';
 import NumberBlock from './number-block';
+import AnswerNumberBlock from './answer-number-block';
+import QuestionNumberBlock from './question-number-block';
 
 class GameScreen extends Component {
   render() {
@@ -9,17 +11,17 @@ class GameScreen extends Component {
       <div style={gameScreenStyle} id="game-screen">
         <Question>
           <NumberBlock value="3" />
-          <NumberBlock value="+"/>
+          <NumberBlock value="+" />
           <NumberBlock value="2"/>
           <div style={equalSpace}>
             <span>=</span>
           </div>
-          <NumberBlock value="?"/>
+          <QuestionNumberBlock value="?" />
         </Question>
         <Answer>
-          <NumberBlock value="4" />
-          <NumberBlock value="1" />
-          <NumberBlock value="5" />
+          <AnswerNumberBlock value="4"/>
+          <AnswerNumberBlock value="1" />
+          <AnswerNumberBlock value="5" />
         </Answer>
       </div>
     )
@@ -40,6 +42,7 @@ const gameScreenStyle = {
 }
 
 const equalSpace = {
-  fontSize: "30px"
+  fontSize: "30px",
+  fontWeigth: "bold"
 }
 export default GameScreen;

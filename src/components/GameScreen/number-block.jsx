@@ -1,9 +1,19 @@
 import React, {Component} from 'react'
 
 class NumberBlock extends Component {
+  
+  componentWillMount() {
+    console.log(this.props)
+    this.setState({
+      color: this.props.color || "brown",
+      value: this.props.value || 0
+    })
+  }
+
+
   render() {
     const {value} = this.props
-
+    numberBlockStyle.backgroundColor = this.state.color
     return(
       <div style={numberBlockStyle} id="number-block">
         <span>{value}</span>
@@ -19,7 +29,6 @@ const numberBlockStyle = {
   fontSize: "50px",
   fontFamily: "Arial",
   color: "white",
-  background: "rgb(122, 83, 86)",
   justifyContent: "center",
   alignItems: "center",
   border: "5px #eee solid",
