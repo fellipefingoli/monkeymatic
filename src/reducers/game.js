@@ -9,14 +9,13 @@ export default function game (state = {}, payload) {
 
 function checkAnswer(state, payload) {
   const {answer} = payload
-  const {currentQuestionIndex} = state
-  let currentQuestion = state.questions[currentQuestionIndex]
-  if(answer === currentQuestion.answer){
-    state.questions[currentQuestionIndex].correct = true
+  const {currentQuestion} = state
+  if(answer === state.stages[currentQuestion].correctAnswer){
+    state.stages[currentQuestion].isCorrect = true
   } else {
-    state.questions[currentQuestionIndex].correct = false
+    state.stages[currentQuestion].isCorrect = false
   }
-  state.currentQuestionIndex++
+  state.currentQuestion++
   return({
     ...state
   })

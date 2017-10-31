@@ -4,9 +4,11 @@ import Answer from './answer';
 import NumberBlock from './number-block';
 import AnswerNumberBlock from './answer-number-block';
 import QuestionNumberBlock from './question-number-block';
+import {connect} from 'react-redux'
 
 class GameScreen extends Component {
   render() {
+    //const {numbers, question, answers} = this.props
     return(
       <div style={gameScreenStyle} id="game-screen">
         <Question>
@@ -46,4 +48,10 @@ const equalSpace = {
   fontWeight: "bolder",
   color: "brown"
 }
-export default GameScreen;
+
+function mapStateToProps(state, props) {
+  return {
+    currentQuestion: state.game.stages[state.game.currentQuestion]
+  }
+}
+export default connect(mapStateToProps)(GameScreen);
