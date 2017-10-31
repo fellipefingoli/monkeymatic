@@ -43,6 +43,7 @@ const gameScreenStyle = {
 
 const equalSpace = {
   fontSize: "30px",
-  fontWeigth: "bold"
+  fontWeight: "bolder",
+  color: "brown"
 }
 export default GameScreen;
