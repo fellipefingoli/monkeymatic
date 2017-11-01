@@ -1,29 +1,66 @@
-import React, {Component} from 'react';
-import Question from './question';
-import Answer from './answer';
-import NumberBlock from './number-block';
-import AnswerNumberBlock from './answer-number-block';
-import QuestionNumberBlock from './question-number-block';
+import React, {Component} from 'react'
+import Question from './question'
+import Answer from './answer'
+import NumberBlock from './number-block'
+import AnswerNumberBlock from './answer-number-block'
+import QuestionNumberBlock from './question-number-block'
+import Points from './points'
+import {CHECK_ANSWER, NEXT_STAGE} from '../../actions'
 import {connect} from 'react-redux'
 
 class GameScreen extends Component {
+
+  checkAnswer(answer) {
+    const {dispatch} = this.props
+    dispatch({ type: CHECK_ANSWER, answer: answer })
+    setTimeout(()=> {
+      console.log("dispatch")
+      dispatch({type: NEXT_STAGE})
+    },2000)
+  }
+
+  questionBlock(key, question) {
+    return (
+      (question !== '?')
+        ? <NumberBlock key={key} value={question} />
+        : <QuestionNumberBlock key={key} value="?" />
+    )
+  }
+
+  equalBlock() {
+    return (
+      <div style={equalSpace}>
+        <span>=</span>
+      </div>
+    )
+  }
+
   render() {
-    //const {numbers, question, answers} = this.props
+    const {stage, points} = this.props
     return(
       <div style={gameScreenStyle} id="game-screen">
+        <Points value={points} />
         <Question>
-          <NumberBlock value="3" />
-          <NumberBlock value="+" />
-          <NumberBlock value="2"/>
-          <div style={equalSpace}>
-            <span>=</span>
+          <div style={{height: '80px' }} id="question-text">
+            { !!stage && stage.isCorrect === null
+              ? <h1 style={messageStyle}>Clique em um dos numeros verdes para preencher a equação abaixo:</h1>
+              : !!stage && stage.isCorrect
+                ? <h1 style={messageStyle}> Acertou! </h1>
+                : !!stage
+                  ? <h1 style={messageStyle}> Errou! </h1>
+                  : <h1 style={messageStyle}> Fim de Jogo </h1>
+            }
           </div>
-          <QuestionNumberBlock value="?" />
+          <div style={questionBlocks} id="question-blocks">
+            {!!stage && stage.questions.map((question, idx) => (
+              this.questionBlock(idx, question)
+            ))}
+          </div>
         </Question>
         <Answer>
-          <AnswerNumberBlock value="4"/>
-          <AnswerNumberBlock value="1" />
-          <AnswerNumberBlock value="5" />
+          {!!stage && stage.answers.map((answer, idx) => (
+            <AnswerNumberBlock key={idx} value={answer} handleClick={this.checkAnswer.bind(this)}/>
+          ))}
         </Answer>
       </div>
     )
@@ -49,9 +86,25 @@ const equalSpace = {
   color: "brown"
 }
 
+const questionBlocks = {
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  width: "100%"
+}
+
+const messageStyle = {
+  fontSize: "23px",
+  color: "#333",
+  fontFamily: "Arial",
+  textShadow: "3px 2px 0 #fff"
+}
+
 function mapStateToProps(state, props) {
   return {
-    currentQuestion: state.game.stages[state.game.currentQuestion]
+    stage: state.game.stages[state.game.currentStage],
+    answering: state.game.answering,
+    points: state.game.points
   }
 }
 export default connect(mapStateToProps)(GameScreen);

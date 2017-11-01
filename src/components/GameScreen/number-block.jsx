@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 
 class NumberBlock extends Component {
-  
+
   componentWillMount() {
-    console.log(this.props)
     this.setState({
       color: this.props.color || "brown",
       value: this.props.value || 0
@@ -12,10 +11,14 @@ class NumberBlock extends Component {
 
 
   render() {
-    const {value} = this.props
+    const {value, handleClick} = this.props
     numberBlockStyle.backgroundColor = this.state.color
     return(
-      <div style={numberBlockStyle} id="number-block">
+      <div
+        style={numberBlockStyle}
+        id="number-block"
+        onClick={ (e) => { !!handleClick && handleClick(value) } }
+      >
         <span>{value}</span>
       </div>
     )

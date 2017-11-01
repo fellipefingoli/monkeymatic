@@ -18,8 +18,9 @@ const questionStyle = {
   height: "330px",
   backgroundImage: "url('/images/Tela.png')",
   backgroundSize: "cover",
-  padding: "70px 30px 70px 70px",
+  padding: "15px 30px 70px 70px",
   display: "flex",
+  flexDirection: "column",
   justifyContent: "space-around",
   alignItems: "center"
 }

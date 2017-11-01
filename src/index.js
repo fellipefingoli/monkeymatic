@@ -13,10 +13,24 @@ const gameState =   {
           questions: ['3','+','2','?'],
           answers: ['5','1','6'],
           correctAnswer: '5',
-          isCorrect: false
+          isCorrect: null
+        },
+        {
+          questions: ['4','-','1','?'],
+          answers: ['4','3','5'],
+          correctAnswer: '3',
+          isCorrect: null
+        },
+        {
+          questions: ['9','?','1','9'],
+          answers: ['-','x','+'],
+          correctAnswer: 'x',
+          isCorrect: null
         }
       ],
-      currentStage: 0
+      currentStage: 0,
+      answering: false,
+      points: 0
     }
 }
 
