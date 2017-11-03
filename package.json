@@ -1,8 +1,8 @@
 {
-  "name": "macacamatica",
+  "name": "monkeymatic",
   "version": "1.0.0",
   "private": true,
-  "homepage" : "http://fellipefingoli.gitlab.io/macacamatica",
+  "homepage" : "https://fellipefingoli.github.io/monkeymatic",
   "devDependencies": {
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
