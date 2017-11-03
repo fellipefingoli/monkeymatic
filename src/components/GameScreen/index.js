@@ -5,6 +5,7 @@ import NumberBlock from './number-block'
 import AnswerNumberBlock from './answer-number-block'
 import QuestionNumberBlock from './question-number-block'
 import Points from './points'
+import Monkey from './monkey'
 import {CHECK_ANSWER, NEXT_STAGE} from '../../actions'
 import {connect} from 'react-redux'
 
@@ -17,6 +18,17 @@ class GameScreen extends Component {
       console.log("dispatch")
       dispatch({type: NEXT_STAGE})
     },2000)
+  }
+
+  monkeyState() {
+    const {stage, answering} = this.props
+    if(!!!answering){
+      return 0
+    } else if (stage.isCorrect) {
+      return 1
+    } else{
+      return 2
+    }
   }
 
   questionBlock(key, question) {
@@ -53,7 +65,9 @@ class GameScreen extends Component {
           </div>
           <div style={questionBlocks} id="question-blocks">
             {!!stage && stage.questions.map((question, idx) => (
-              this.questionBlock(idx, question)
+              (idx !== 3)
+                ? this.questionBlock(idx, question)
+                : [this.equalBlock(), this.questionBlock(idx, question)]
             ))}
           </div>
         </Question>
@@ -62,6 +76,7 @@ class GameScreen extends Component {
             <AnswerNumberBlock key={idx} value={answer} handleClick={this.checkAnswer.bind(this)}/>
           ))}
         </Answer>
+        <Monkey state={this.monkeyState()}/>
       </div>
     )
   }

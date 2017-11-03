@@ -26,6 +26,48 @@ const gameState =   {
           answers: ['-','x','+'],
           correctAnswer: 'x',
           isCorrect: null
+        },
+        {
+          questions: ['?','÷','2','4'],
+          answers: ['6','8','1'],
+          correctAnswer: '8',
+          isCorrect: null
+        },
+        {
+          questions: ['12','+','5','?'],
+          answers: ['5','20','17'],
+          correctAnswer: '17',
+          isCorrect: null
+        },
+        {
+          questions: ['15','?','10','5'],
+          answers: ['-','+','÷'],
+          correctAnswer: '-',
+          isCorrect: null
+        },
+        {
+          questions: ['21','x','2','?'],
+          answers: ['25','34','42'],
+          correctAnswer: '42',
+          isCorrect: null
+        },
+        {
+          questions: ['14','-','?','7'],
+          answers: ['0','12','7'],
+          correctAnswer: '7',
+          isCorrect: null
+        },
+        {
+          questions: ['?','x','9','45'],
+          answers: ['5','4','9'],
+          correctAnswer: '5',
+          isCorrect: null
+        },
+        {
+          questions: ['14','?','4','10'],
+          answers: ['x','-','+'],
+          correctAnswer: '-',
+          isCorrect: null
         }
       ],
       currentStage: 0,
