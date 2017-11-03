@@ -2,13 +2,14 @@
   "name": "monkeymatic",
   "version": "1.0.0",
   "private": true,
-  "homepage" : "https://fellipefingoli.github.io/monkeymatic",
+  "homepage": "https://fellipefingoli.github.io/monkeymatic",
   "devDependencies": {
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-scripts": "1.0.10"
   },
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.4",
@@ -17,6 +18,8 @@
     "redux-saga": "^0.15.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
