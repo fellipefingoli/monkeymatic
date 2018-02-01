@@ -4,7 +4,7 @@ class Monkey extends Component {
 
   render() {
     const {state} = this.props
-    monkeyStyle.backgroundImage = 'url(/images/monkey-state-'+state+'.png)'
+    monkeyStyle.backgroundImage = 'url(images/monkey-state-'+state+'.png)'
     console.log(monkeyStyle)
     return(
       <div style={monkeyStyle} id="monkey">

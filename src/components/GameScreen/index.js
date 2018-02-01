@@ -90,7 +90,7 @@ const gameScreenStyle = {
   borderRadius: "5px",
   padding: "10px",
   margin: "auto",
-  backgroundImage: "url('/images/Background.png')",
+  backgroundImage: "url('images/Background.png')",
   backgroundSize: "contain",
   boxShadow: "10px 10px 13px -5px"
 }

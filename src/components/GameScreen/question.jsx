@@ -16,7 +16,7 @@ const questionStyle = {
   left: "140px",
   width: "500px",
   height: "330px",
-  backgroundImage: "url('/images/Tela.png')",
+  backgroundImage: "url('images/Tela.png')",
   backgroundSize: "cover",
   padding: "15px 30px 70px 70px",
   display: "flex",
